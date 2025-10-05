@@ -82,10 +82,9 @@ The notebook **`MDN-NHITS forecasting_bike.ipynb`** serves as a lightweight exam
 
 1. Upload `bike_raw.csv` to your Google Drive at `/content/drive/MyDrive/myproject/`
 2. Open `MDN-NHITS forecasting_bike.ipynb` in Google Colab
-3. Enable GPU runtime: Runtime → Change runtime type → GPU
-4. Run Cell 1 to install dependencies (~3-5 minutes)
-5. Run Cell 2 to configure model settings (see Configuration Options below)
-6. Execute remaining cells sequentially
+3. Run Cell 1 to install dependencies (~3-5 minutes)
+4. Run Cell 2 to configure model settings (see Configuration Options below)
+5. Execute remaining cells sequentially
 
 This notebook is configured to run **one model variant at a time**. To test the different configurations explored in our paper, you will need to manually adjust the code in the second cell:
 
@@ -117,7 +116,7 @@ The notebook **`MDN-LGBM-NHITS_Electricity.ipynb`** contains the complete code t
 
 To run the experiments, you must execute the cells sequentially. Note that some blocks are commented out by default to allow for modular execution.
 
-For LGBM training inclusion, please uncomment **BLOCK 2: LGBM FORECASTING** to generate the LightGBM model predictions before running the subsequent evaluation cells for that model.
+For LGBM training inclusion, please uncomment *BLOCK 2: LGBM FORECASTING* to generate the LightGBM model predictions before running the subsequent evaluation cells for that model.
 
 ## Running Locally (Alternative to Colab)
 
