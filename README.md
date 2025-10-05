@@ -82,7 +82,7 @@ In the NHITS model definition within the main function, comment or uncomment the
 - **With MDN**: `futr_exog_list=["total_mean", "total_variance"]`
 - **Without MDN**: `# futr_exog_list=["total_mean", "total_variance"]`
 
-For the proposed model N-HiTS + MDN, please set:
+#### For the proposed model N-HiTS + MDN, please set:
 - `"NHITS_LOSS": "MAE"` (Mean Absolute Error for point forecasts)
 - `futr_exog_list=["total_mean", "total_variance"]`
 
