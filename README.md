@@ -31,10 +31,12 @@ The provided seeds should ensure that results are directionally consistent to th
 
 ## Repository Structure
 
-- **`MDN-NHITS forecasting_bike.ipynb`**: A Jupyter Notebook providing a simplified and faster demonstration of the N-HiTS + MDN framework on the Bike Sharing dataset.
+- **`MDN-LGBM-NHITS forecasting_bike.ipynb`**: A Jupyter Notebook providing the code demonstration of the N-HiTS + MDN framework on the Bike Sharing dataset, as well as computing its benchmarks.
 - **`MDN-LGBM-NHITS_Electricity.ipynb`**: A Jupyter Notebook containing the full, archival code to reproduce the experiments on the Electricity Load Diagrams dataset.
 - **`requirements.txt`**: A list of Python packages for setting up a local environment.
 - **`bike_raw.csv`**: Bike Dataset.
+- **`bike_results.csv`**: Resulting files for the numbers used in the paper for the bike dataset.
+- **`electricity_partial_results.csv`**: Example of resulting files of the electricity dataset from a limited training run. The real resulting files are too large for git.
 
 ## Software Requirements
 - Python 3.8+
@@ -55,7 +57,7 @@ See `requirements.txt` for complete dependency list with pinned versions.
 - **Electricity Load Diagrams 2011-2014**
   - Source: UCI Machine Learning Repository  
   - URL: https://archive.ics.uci.edu/dataset/321/electricityloaddiagrams20112014
-  - File: `electricity.csv`
+  - File: `electricity.csv` (not included in this repository, but available in the source)
 
 ### Proprietary Dataset (Not Available)
 - **Glovo Demand Data**: Cannot be shared due to NDA with data provider
@@ -90,33 +92,11 @@ The notebook **`MDN-NHITS forecasting_bike.ipynb`** serves as a lightweight exam
 4. Run Cell 2 to configure model settings (see Configuration Options below)
 5. Execute remaining cells sequentially
 
-This notebook is configured to run **one model variant at a time**. To test the different configurations explored in our paper, you will need to manually adjust the code in the second cell:
-
-#### To Change the Loss Function
-
-In the `CONFIG` dictionary, modify the `NHITS_LOSS` key. Valid options are:
-
-- `"NHITS_LOSS": "PMM"` (Poisson Mixture Model)
-- `"NHITS_LOSS": "GMM"` (Gaussian Mixture Model)
-- `"NHITS_LOSS": "MAE"` (Mean Absolute Error for point forecasts)
-
-#### To Enable/Disable MDN Covariates
-
-In the NHITS model definition within the main function, comment or uncomment the `futr_exog_list` parameter:
-
-- **With MDN**: `futr_exog_list=["total_mean", "total_variance"]`
-- **Without MDN**: `# futr_exog_list=["total_mean", "total_variance"]`
-
-#### For the proposed model N-HiTS + MDN, please set:
-- `"NHITS_LOSS": "MAE"` (Mean Absolute Error for point forecasts)
-- `futr_exog_list=["total_mean", "total_variance"]`
-
-
 ### 2. Full experimental replication with LightGBM baseline (Electricity Dataset)
 
 The notebook **`MDN-LGBM-NHITS_Electricity.ipynb`** contains the complete code to replicate the results for the Electricity dataset.
 
-**Important Note on Runtime**: This is an archival notebook and is **computationally intensive**. Training models may take **several days** to complete, even on a high-performance Google Colab instance.
+**Important Note on Runtime and Space requirements**: This is an archival notebook and is **computationally intensive**. Training models may take **several days** to complete, even on a high-performance Google Colab instance. The resulting files will be **very large** (you will need around 50 Gb of space for them).
 
 To run the experiments, you must execute the cells sequentially. Note that some blocks are commented out by default to allow for modular execution.
 
@@ -142,7 +122,4 @@ The code provided implements point forecasts with MAE loss. To reproduce probabi
    - `loss = PoissonMixtureLoss(n_components=15)`
 2. Model outputs distribution parameters instead of point estimates
 3. Evaluation uses CRPS metric
-
-**Computational requirements:** Full replication requires several days of GPU time (T4 equivalent) per model variant.
-
 
