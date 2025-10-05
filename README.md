@@ -2,19 +2,7 @@
 
 This repository contains the code for experiments on public datasets presented in the paper **"Improving Demand Forecasts for Omnichannel Grocery Retail"**, published in the *International Journal of Forecasting*.
 
-## Citation
-
-If you use this code or our findings in your research, please cite our paper:
-
-```bibtex
-@article{Gerum2025Improving,
-  title={Improving High-Frequency Demand Forecasts for Omnichannel Grocery Retail},
-  author={Gerum, Pedro Cesar Lopes and Herrero, Javier Rubio and Chung, Moonwon and Giaretti, Matteo},
-  journal={International Journal of Forecasting},
-  year={2025},
-  publisher={Elsevier}
-}
-```
+## The main goal of the project is to provide the MDN+NiTS model for high-frequency time series forecasting. This novel framework integrates deep learning models with a decoupled approach that separates structural demand modeling from short-term fluctuation prediction to enhance prediction accuracy. Our method combines Neural Hierarchical Interpolation for Time Series Forecasting (N-HiTS) and a Mixture Density Network (MDN) to capture short-term fluctuations and structural demand patterns, respectively.
 
 ## Note on Reproducibility
 
@@ -116,3 +104,17 @@ The code provided implements point forecasts with MAE loss. To reproduce probabi
 3. Evaluation uses CRPS metric
 
 **Computational requirements:** Full replication requires several days of GPU time (T4 equivalent) per model variant.
+
+## Citation
+
+If you use this code or our findings in your research, please cite our paper:
+
+```bibtex
+@article{Gerum2025Improving,
+  title={Improving High-Frequency Demand Forecasts for Omnichannel Grocery Retail},
+  author={Gerum, Pedro Cesar Lopes and Herrero, Javier Rubio and Chung, Moonwon and Giaretti, Matteo},
+  journal={International Journal of Forecasting},
+  year={2025},
+  publisher={Elsevier}
+}
+```
