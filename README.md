@@ -35,7 +35,6 @@ The provided seeds should ensure that results are directionally consistent to th
 - **`MDN-LGBM-NHITS_Electricity.ipynb`**: A Jupyter Notebook containing the full, archival code to reproduce the experiments on the Electricity Load Diagrams dataset.
 - **`requirements.txt`**: A list of Python packages for setting up a local environment.
 - **`bike_raw.csv`**: Bike Dataset.
-- **`electricity.csv`**: Electricity Dataset.
 
 ## Software Requirements
 - Python 3.8+
@@ -67,6 +66,11 @@ Before running the notebooks, please upload the necessary data files to your Goo
 
 - **Electricity Dataset**: `/content/drive/MyDrive/electricity.csv`
 - **Bike Sharing Dataset**: `/content/drive/MyDrive/myproject/bike_raw.csv`
+
+The electricity dataset is publicly available but too large for Git:
+
+1. Download from UCI ML Repository: https://archive.ics.uci.edu/dataset/321/electricityloaddiagrams20112014
+2. Place in `/content/drive/MyDrive/electricity.csv` (or update path in notebook CONFIG)
 
 ## Setup for Google Colab
 
