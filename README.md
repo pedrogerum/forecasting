@@ -34,13 +34,32 @@ The provided seeds should ensure that results are directionally consistent and n
 - **`MDN-NHITS forecasting_bike.ipynb`**: A Jupyter Notebook providing a simplified and faster demonstration of the N-HiTS + MDN framework on the Bike Sharing dataset.
 - **`MDN-LGBM-NHITS_Electricity.ipynb`**: A Jupyter Notebook containing the full, archival code to reproduce the experiments on the Electricity Load Diagrams dataset.
 - **`requirements.txt`**: A list of Python packages for setting up a local environment.
-- **`bike_raw.csv`**: the publicly available bike dataset (https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset).
-- **`electricity.csv`**: the publicly available electricity dataset (https://archive.ics.uci.edu/dataset/321/electricityloaddiagrams20112014).
+- **`bike_raw.csv`**: Bike Dataset.
+- **`electricity.csv`**: Electricity Dataset.
 
+## Software Requirements
+- Python 3.8+
+- PyTorch 1.x+ (installed via Colab)
+- neuralforecast (version specified in requirements.txt)
+- Google Colab (recommended) OR local environment with CUDA-capable GPU
 
-## Data
+See `requirements.txt` for complete dependency list with pinned versions.
 
-The primary dataset from Glovo used in our paper **cannot be shared** due to a non-disclosure agreement (NDA). However, the public datasets are included in the repository.
+## Data Availability and Provenance
+
+### Public Datasets (Included in Repository)
+- **Bike Sharing Dataset**
+  - Source: UCI Machine Learning Repository
+  - URL: https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset
+  - File: `bike_raw.csv`
+  
+- **Electricity Load Diagrams 2011-2014**
+  - Source: UCI Machine Learning Repository  
+  - URL: https://archive.ics.uci.edu/dataset/321/electricityloaddiagrams20112014
+  - File: `electricity.csv`
+
+### Proprietary Dataset (Not Available)
+- **Glovo Demand Data**: Cannot be shared due to NDA with data provider
 
 ### Data Setup
 
@@ -55,15 +74,18 @@ This project is designed to be run in a **Google Colab environment with a GPU ru
 
 ### Steps:
 
-1. Upload the notebooks and data files to your Google Drive
-2. Open a notebook in Google Colab
-3. Run the first code cell in the notebook (this cell contains commands to install the correct versions of all required packages directly within the Colab environment)
-
 We provide two notebooks to demonstrate our framework.
 
 ### 1. Lightweight implementation of N-HiTS + MDN framework (Bike Sharing Dataset)
 
 The notebook **`MDN-NHITS forecasting_bike.ipynb`** serves as a lightweight example of the N-HiTS + MDN framework. It runs on the free tier of Google Colab.
+
+1. Upload `bike_raw.csv` to your Google Drive at `/content/drive/MyDrive/myproject/`
+2. Open `MDN-NHITS forecasting_bike.ipynb` in Google Colab
+3. Enable GPU runtime: Runtime → Change runtime type → GPU
+4. Run Cell 1 to install dependencies (~3-5 minutes)
+5. Run Cell 2 to configure model settings (see Configuration Options below)
+6. Execute remaining cells sequentially
 
 This notebook is configured to run **one model variant at a time**. To test the different configurations explored in our paper, you will need to manually adjust the code in the second cell:
 
