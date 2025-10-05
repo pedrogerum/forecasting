@@ -95,7 +95,7 @@ The notebook **`MDN-LGBM-NHITS_Electricity.ipynb`** contains the complete code t
 
 To run the experiments, you must execute the cells sequentially. Note that some blocks are commented out by default to allow for modular execution.
 
-For LGBM training inclusion, please uncomment BLOCK 2: LGBM FORECASTING** to generate the LightGBM model predictions before running the subsequent evaluation cells for that model.
+For LGBM training inclusion, please uncomment **BLOCK 2: LGBM FORECASTING** to generate the LightGBM model predictions before running the subsequent evaluation cells for that model.
 
 ## Running Locally (Alternative to Colab)
 
