@@ -2,21 +2,6 @@
 
 This repository contains the code for experiments on public datasets presented in the paper **"Improving Demand Forecasts for Omnichannel Grocery Retail"**, published in the *International Journal of Forecasting*.
 
-## Abstract
-
-The rise of omnichannel grocery retail has introduced significant operational complexities, emphasizing the importance of high-frequency demand forecasting. In this context, achieving both accuracy and computational efficiency with standard forecasting tools remains a challenge. 
-
-Addressing these limitations, we propose a novel framework that integrates deep learning models with a decoupled approach that separates structural demand modeling from short-term fluctuation prediction to enhance prediction accuracy. Our method combines **Neural Hierarchical Interpolation for Time Series Forecasting (N-HiTS)** and a **Mixture Density Network (MDN)** to capture short-term fluctuations and structural demand patterns, respectively. 
-
-This framework is extended to probabilistic forecasting, comparing quantile-based and distributional models, both with and without the decoupling approach. Empirical validation using data from a leading on-demand delivery service demonstrates significant improvements in deep learning methods over traditional ARIMA methods and the industry-standard Gradient Boosting Machine (GBM), and validates the effectiveness of the decoupling approach. 
-
-### Key Results
-
-- Reduces **mean absolute percentage error (MAPE)** for point estimates from **23.00% to 14.31%** (a **37.78% reduction**)
-- Reduces **continuous ranked probability score (CRPS)** from **10.85 to 2.34** (a **78.44% reduction**)
-
-These findings can provide grocery e-commerce companies with valuable insights for optimizing inventory management, driver scheduling, and overall operational efficiency.
-
 ## Citation
 
 If you use this code or our findings in your research, please cite our paper:
@@ -43,9 +28,12 @@ The provided seeds should ensure that results are directionally consistent and n
 
 ## Repository Structure
 
-- **`MDN-LGBM-NHITS_Electricity.ipynb`**: A Jupyter Notebook containing the full, archival code to reproduce the experiments on the Electricity Load Diagrams dataset.
 - **`MDN-NHITS forecasting_bike.ipynb`**: A Jupyter Notebook providing a simplified and faster demonstration of the N-HiTS + MDN framework on the Bike Sharing dataset.
+- **`MDN-LGBM-NHITS_Electricity.ipynb`**: A Jupyter Notebook containing the full, archival code to reproduce the experiments on the Electricity Load Diagrams dataset.
 - **`requirements.txt`**: A list of Python packages for setting up a local environment.
+- **`bike_raw.csv`**: the publicly available bike dataset (https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset).
+- **`electricity.csv`**: the publicly available electricity dataset (https://archive.ics.uci.edu/dataset/321/electricityloaddiagrams20112014).
+
 
 ## Data
 
@@ -95,11 +83,11 @@ In the NHITS model definition within the main function, comment or uncomment the
 
 The notebook **`MDN-LGBM-NHITS_Electricity.ipynb`** contains the complete code to replicate the results for the Electricity dataset.
 
-**Important Note on Runtime**: This is an archival notebook and is **computationally intensive**. Training all models may take **over 1.5 days** to complete, even on a high-performance Google Colab instance.
+**Important Note on Runtime**: This is an archival notebook and is **computationally intensive**. Training models may take **several days** to complete, even on a high-performance Google Colab instance.
 
-To run the experiments, you must execute the cells sequentially. Note that some blocks are commented out by default to allow for modular execution. For a full replication of the paper's results:
+To run the experiments, you must execute the cells sequentially. Note that some blocks are commented out by default to allow for modular execution.
 
-- You may need to uncomment and run **BLOCK 2: LGBM FORECASTING** to generate the LightGBM model predictions before running the subsequent evaluation cells for that model.
+For LGBM training inclusion, please uncomment BLOCK 2: LGBM FORECASTING** to generate the LightGBM model predictions before running the subsequent evaluation cells for that model.
 
 ## Running Locally (Alternative to Colab)
 
@@ -112,3 +100,22 @@ source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
 
 # Install dependencies
 pip install -r requirements.txt
+
+## Probabilistic Forecasting (Section 4.3, Table 3)
+
+The code provided implements point forecasts with MAE loss. To reproduce probabilistic forecasting results:
+
+### For Multiquantile (Pinball Loss):
+1. Include `from neuralforecast.losses.pytorch import QuantileLoss`
+1. In the N-HiTS model initialization, change loss function to:
+   - `loss = QuantileLoss(q=[0.05, 0.10, ..., 0.95])`
+2. Training remains identical, evaluation uses CRPS metric
+
+### For GMM/PMM distributions:
+1. Replace loss function with:
+   - `loss = GaussianMixtureLoss(n_components=15)` or
+   - `loss = PoissonMixtureLoss(n_components=15)`
+2. Model outputs distribution parameters instead of point estimates
+3. Evaluation uses CRPS metric
+
+**Computational requirements:** Full replication requires several days of GPU time (T4 equivalent) per model variant.
