@@ -98,7 +98,7 @@ For LGBM training inclusion, please uncomment BLOCK 2: LGBM FORECASTING** to gen
 
 If you prefer to run this project on your local machine, you can use the `requirements.txt` file to set up a Python environment.
 
-## Probabilistic Forecasting (Section 4.3, Table 3)
+## Probabilistic Forecasting
 
 The code provided implements point forecasts with MAE loss. To reproduce probabilistic forecasting results:
 
