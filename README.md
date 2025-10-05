@@ -58,7 +58,7 @@ This project is designed to be run in a **Google Colab environment with a GPU ru
 
 We provide two notebooks to demonstrate our framework.
 
-### 1. Simplified Demonstration (Bike Sharing Dataset)
+### 1. Lightweight implementation of N-HiTS + MDN framework (Bike Sharing Dataset)
 
 The notebook **`MDN-NHITS forecasting_bike.ipynb`** serves as a lightweight example of the N-HiTS + MDN framework. It runs on the free tier of Google Colab.
 
@@ -79,7 +79,12 @@ In the NHITS model definition within the main function, comment or uncomment the
 - **With MDN**: `futr_exog_list=["total_mean", "total_variance"]`
 - **Without MDN**: `# futr_exog_list=["total_mean", "total_variance"]`
 
-### 2. Full Replication (Electricity Dataset)
+For the proposed model N-HiTS + MDN, please set:
+- `"NHITS_LOSS": "MAE"` (Mean Absolute Error for point forecasts)
+- `futr_exog_list=["total_mean", "total_variance"]`
+
+
+### 2. Full experimental replication with LightGBM baseline (Electricity Dataset)
 
 The notebook **`MDN-LGBM-NHITS_Electricity.ipynb`** contains the complete code to replicate the results for the Electricity dataset.
 
@@ -92,14 +97,6 @@ For LGBM training inclusion, please uncomment BLOCK 2: LGBM FORECASTING** to gen
 ## Running Locally (Alternative to Colab)
 
 If you prefer to run this project on your local machine, you can use the `requirements.txt` file to set up a Python environment.
-
-```bash
-# Create a virtual environment (optional but recommended)
-python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-
-# Install dependencies
-pip install -r requirements.txt
 
 ## Probabilistic Forecasting (Section 4.3, Table 3)
 
