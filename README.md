@@ -77,10 +77,10 @@ pip install -r requirements.txt
 This project uses two public datasets. You will need to place them in a location accessible by your notebook (e.g., Google Drive for Colab).
 
 - **Bike Sharing Dataset**: The `bike_raw.csv` file is already included in this repository.
-  - Place it in a known path. The default path in the notebook is `/content/drive/myproject/bike_raw.csv`.
+  - Place it in a known path. The default path in the notebook is `/content/drive/MyDrive/myproject/bike_raw.csv`.
 - **Electricity Dataset**: This dataset is too large for the repository.
-  - Download it from: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/ElectricityLoadDiagrams20112014)
-  - Place it in a known path. The default path in the notebook is `/content/drive/myproject/electricity.csv`.
+  - Download it from: [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/321/electricityloaddiagrams20112014)
+  - Place it in a known path. The default path in the notebook is `/content/drive/MyDrive/myproject/electricity.csv`.
 
 
 The **SuperGlovo Demand Data** used in the main part of the manuscript cannot be shared due to an NDA with data provider.
@@ -90,7 +90,7 @@ The **SuperGlovo Demand Data** used in the main part of the manuscript cannot be
 
 Before running, update the data paths in the configuration cell at the top of each notebook to match the location where you saved the datasets.
 
-- For a lightweight demonstration, run the cells in `MDN-LGBM-NHITS_bike.ipynb` sequentially.
+- For a lightweight demonstration, run the cells in `MDN_LGBM_NHITS_bike.ipynb` sequentially.
 - For full experimental replication, run the cells in `MDN-LGBM-NHITS_Electricity.ipynb`.
 
 **Warning**: This notebook for the full experimental replication is computationally intensive and may take several days to complete, requiring 150-200 GB of storage for its artifacts.
@@ -109,8 +109,11 @@ The framework is configured for point forecasting (using MAE) by default. Howeve
 
 ### To generate distributional forecasts (GMM/PMM):
 
-- The predicted distribution parameters (e.g., means, variances, weights) are saved in the output files (`test_forecasts_....csv`).
-- These parameters can be used to construct the full predictive distribution and compute the CRPS.
+1. Use the loss functions: `GaussianMixtureLoss(n_components=15)` or `PoissonMixtureLoss(n_components=15)`
+2. Model will output distribution parameters to files (`test_forecasts_....csv`)
+3. Evaluate using CRPS metric
+
+Note: Pre-computed GMM/PMM results are not included due to file size. Run the notebooks with these loss functions to generate them.
 
 
 
