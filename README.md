@@ -31,11 +31,11 @@ The provided seeds should ensure that results are directionally consistent to th
 
 ## Repository Structure
 
-- **`MDN-LGBM-NHITS forecasting_bike.ipynb`**: A Jupyter Notebook providing the code demonstration of the N-HiTS + MDN framework on the Bike Sharing dataset, as well as computing its benchmarks.
+- **`MDN_LGBM_NHITS_bike.ipynb`**: A Jupyter Notebook providing the code demonstration of the N-HiTS + MDN framework on the Bike Sharing dataset, as well as computing its benchmarks.
 - **`MDN-LGBM-NHITS_Electricity.ipynb`**: A Jupyter Notebook containing the full, archival code to reproduce the experiments on the Electricity Load Diagrams dataset.
 - **`requirements.txt`**: A list of Python packages for setting up a local environment.
 - **`bike_raw.csv`**: Bike Dataset.
-- **`electricity_results.csv`**: Resulting files for the numbers used in the paper for the electricity dataset.
+- **`electricity_results.zip`**: Resulting files for the numbers used in the paper for the electricity dataset. Contains several csv files with intermediate steps and final metrics for all benchmark models and the MDN + NiTS model.
 
 ## Software Requirements
 - Python 3.8+
@@ -83,13 +83,12 @@ We provide two notebooks to demonstrate our framework.
 
 ### 1. Lightweight implementation of N-HiTS + MDN framework (Bike Sharing Dataset)
 
-The notebook **`MDN-NHITS forecasting_bike.ipynb`** serves as a lightweight example of the N-HiTS + MDN framework. It runs on the free tier of Google Colab.
+The notebook **`MDN_LGBM_NHITS_bike.ipynb`** serves as a lightweight example of the N-HiTS + MDN framework. It runs on the free tier of Google Colab.
 
 1. Upload `bike_raw.csv` to your Google Drive at `/content/drive/MyDrive/myproject/`
-2. Open `MDN-NHITS forecasting_bike.ipynb` in Google Colab
+2. Open `MDN_LGBM_NHITS_bike.ipynb` in Google Colab
 3. Run Cell 1 to install dependencies (~3-5 minutes)
-4. Run Cell 2 to configure model settings (see Configuration Options below)
-5. Execute remaining cells sequentially
+4. Execute remaining cells sequentially
 
 ### 2. Full experimental replication with LightGBM baseline (Electricity Dataset)
 
@@ -113,12 +112,10 @@ The code provided implements point forecasts with MAE loss. To reproduce probabi
 1. Include `from neuralforecast.losses.pytorch import QuantileLoss`
 1. In the N-HiTS model initialization, change loss function to:
    - `loss = QuantileLoss(q=[0.05, 0.10, ..., 0.95])`
-2. Training remains identical, evaluation uses CRPS metric
+2. Training remains identical. **Evaluation:** CRPS computed using equation (13) from Section 4.3.1, or using the `properscoring` library's `crps_ensemble` function.
 
 ### For GMM/PMM distributions:
-1. Replace loss function with:
-   - `loss = GaussianMixtureLoss(n_components=15)` or
-   - `loss = PoissonMixtureLoss(n_components=15)`
-2. Model outputs distribution parameters instead of point estimates
+1. Run the files as they are.
+2. In the results from the GMM/PMM trained models, find the file containing the predicted distribution parameters (`test_forecasts_....csv`).
 3. Evaluation uses CRPS metric
 
