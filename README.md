@@ -105,7 +105,7 @@ The framework is configured for point forecasting (using MAE) by default. Howeve
 
 1. Import the QuantileLoss function: `from neuralforecast.losses.pytorch import QuantileLoss`.
 2. In the N-HiTS model initialization, set the loss to `loss=QuantileLoss(quantiles=[0.05, 0.1, ..., 0.95])`.
-3. Evaluate forecasts using the CRPS computed using equation (13) from Section 4.3.1, or using the `properscoring` library's `crps_ensemble` function.
+3. Evaluate forecasts using the approximated CRPS computed using equation (14) from Section 4.3.1, or using the `properscoring` library's `crps_ensemble` function.
 
 ### To generate distributional forecasts (GMM/PMM):
 
