@@ -94,7 +94,7 @@ The notebook **`MDN_LGBM_NHITS_bike.ipynb`** serves as a lightweight example of 
 
 The notebook **`MDN-LGBM-NHITS_Electricity.ipynb`** contains the complete code to replicate the results for the Electricity dataset.
 
-**Important Note on Runtime and Space requirements**: This is an archival notebook and is **computationally intensive**. Training models may take **several days** to complete, even on a high-performance Google Colab instance. The resulting files will be **very large** (you will need around 50 Gb of space for them).
+**Important Note on Runtime and Space requirements**: This is an archival notebook and is **computationally intensive**. Training models may take **several days** to complete, even on a high-performance Google Colab instance. The resulting files will be **very large** (you will need around 150-200 Gb of space for them).
 
 To run the experiments, you must execute the cells sequentially. Note that some blocks are commented out by default to allow for modular execution.
 
