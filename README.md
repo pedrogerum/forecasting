@@ -51,7 +51,7 @@ We recommend using Google Colab with a GPU runtime for ease of setup.
 
 ### Step 1: Get the Code and Set Up Your Environment
 
-### Option A: Google Colab (Recommended)
+#### Option A: Google Colab (Recommended)
  1. Open `MDN_LGBM_NHITS_bike.ipynb` or `MDN-LGBM-NHITS_Electricity.ipynb` in Google Colab.
 
  2. The first code cell in each notebook will install all necessary dependencies via pip. This process takes approximately 3-5 minutes.
@@ -64,7 +64,7 @@ To run the project locally, ensure you have Python 3.8+ and a CUDA-capable GPU.
 ```bash
 # Clone this repository
 
-# Create and activate a virtual environment (recommended)
+# Create and activate a virtual environment
 python3 -m venv venv
 source venv/bin/activate
 
@@ -104,12 +104,12 @@ The framework is configured for point forecasting (using MAE) by default. Howeve
 
 1. Import the QuantileLoss function: `from neuralforecast.losses.pytorch import QuantileLoss`.
 2. In the N-HiTS model initialization, set the loss to `loss=QuantileLoss(quantiles=[0.05, 0.1, ..., 0.95])`.
-3. Evaluate forecasts using a probabilistic metric such as the Continuous Ranked Probability Score (CRPS).
+3. Evaluate forecasts using the Continuous Ranked Probability Score (CRPS).
 
 ### To generate distributional forecasts (GMM/PMM):
 
 - The predicted distribution parameters (e.g., means, variances, weights) are saved in the output files (`test_forecasts_....csv`).
-- These parameters can be used to construct the full predictive distribution and calculate metrics like CRPS.
+- These parameters can be used to construct the full predictive distribution and calculate the CRPS.
 
 
 
