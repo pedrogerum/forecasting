@@ -35,8 +35,7 @@ The provided seeds should ensure that results are directionally consistent to th
 - **`MDN-LGBM-NHITS_Electricity.ipynb`**: A Jupyter Notebook containing the full, archival code to reproduce the experiments on the Electricity Load Diagrams dataset.
 - **`requirements.txt`**: A list of Python packages for setting up a local environment.
 - **`bike_raw.csv`**: Bike Dataset.
-- **`bike_results.csv`**: Resulting files for the numbers used in the paper for the bike dataset.
-- **`electricity_partial_results.csv`**: Example of resulting files of the electricity dataset from a limited training run. The real resulting files are too large for git.
+- **`electricity_results.csv`**: Resulting files for the numbers used in the paper for the electricity dataset.
 
 ## Software Requirements
 - Python 3.8+
