@@ -77,12 +77,13 @@ pip install -r requirements.txt
 This project uses two public datasets. You will need to place them in a location accessible by your notebook (e.g., Google Drive for Colab).
 
 - **Bike Sharing Dataset**: The `bike_raw.csv` file is already included in this repository.
+  - Place it in a known path. The default path in the notebook is `/content/drive/myproject/bike_raw.csv`.
 - **Electricity Dataset**: This dataset is too large for the repository.
   - Download it from: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/ElectricityLoadDiagrams20112014)
-  - Place it in a known path. The default path in the notebook is `/content/drive/MyDrive/electricity.csv`.
+  - Place it in a known path. The default path in the notebook is `/content/drive/myproject/electricity.csv`.
 
 
-The **Glovo Demand Data** used in the main part of the manuscript cannot be shared due to an NDA with data provider.
+The **SuperGlovo Demand Data** used in the main part of the manuscript cannot be shared due to an NDA with data provider.
 
 
 ### Step 3: Configure Paths and Run the Notebooks
