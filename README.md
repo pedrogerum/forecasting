@@ -5,6 +5,8 @@ This repository implements the N-HiTS + MDN framework for high-frequency demand 
 
 The main goal of the project is to provide the N-HiTS + MDN framework for high-frequency time series forecasting. This novel framework integrates deep learning models with a decoupled approach that separates structural demand modeling from short-term fluctuation prediction to enhance prediction accuracy. Our method combines Neural Hierarchical Interpolation for Time Series Forecasting (N-HiTS) and a Mixture Density Network (MDN) to capture short-term fluctuations and structural demand patterns, respectively.
 
+---
+
 ## Citation
 
 If you use this code or our findings in your research, please cite our paper:
@@ -19,6 +21,8 @@ If you use this code or our findings in your research, please cite our paper:
 }
 ```
 
+---
+
 ## Note on Reproducibility
 
 Please be aware that due to multiple sources of randomness in deep learning experiments, the final metrics produced by this code may vary slightly from those reported in the paper. Sources of variation include:
@@ -29,93 +33,83 @@ Please be aware that due to multiple sources of randomness in deep learning expe
 
 The provided seeds should ensure that results are directionally consistent to the published findings.
 
+---
+
 ## Repository Structure
 
 - **`MDN_LGBM_NHITS_bike.ipynb`**: A Jupyter Notebook providing the code demonstration of the N-HiTS + MDN framework on the Bike Sharing dataset, as well as computing its benchmarks.
-- **`MDN-LGBM-NHITS_Electricity.ipynb`**: A Jupyter Notebook containing the full, archival code to reproduce the experiments on the Electricity Load Diagrams dataset.
+- **`MDN-LGBM-NHITS_Electricity.ipynb`**: The complete archival code to reproduce the experimental results from our paper using the Electricity Load Diagrams dataset. Note: This is computationally intensive.
 - **`requirements.txt`**: A list of Python packages for setting up a local environment.
-- **`bike_raw.csv`**: Bike Dataset.
-- **`electricity_results.zip`**: Resulting files for the numbers used in the paper for the electricity dataset. Contains several csv files with intermediate steps and final metrics for all benchmark models and the MDN + NiTS model.
+- **`bike_raw.csv`**: The Bike Sharing dataset file.
+- **`electricity_results.zip`**: Pre-computed forecasts and evaluation metrics for all models on the electricity dataset. This allows for analysis of our results without re-running the lengthy experiments.
 
-## Software Requirements
-- Python 3.8+
-- PyTorch 1.x+ (installed via Colab)
-- neuralforecast (version specified in requirements.txt)
-- Google Colab (recommended) OR local environment with CUDA-capable GPU
+---
 
-See `requirements.txt` for complete dependency list with pinned versions.
+## Setup and Usage
 
-## Data Availability and Provenance
+We recommend using Google Colab with a GPU runtime for ease of setup.
 
-### Public Datasets (Included in Repository)
-- **Bike Sharing Dataset**
-  - Source: UCI Machine Learning Repository
-  - URL: https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset
-  - File: `bike_raw.csv`
-  
-- **Electricity Load Diagrams 2011-2014**
-  - Source: UCI Machine Learning Repository  
-  - URL: https://archive.ics.uci.edu/dataset/321/electricityloaddiagrams20112014
-  - File: `electricity.csv` (not included in this repository, but available in the source)
+### Step 1: Get the Code and Set Up Your Environment
 
-### Proprietary Dataset (Not Available)
-- **Glovo Demand Data**: Cannot be shared due to NDA with data provider
+### Option A: Google Colab (Recommended)
+ 1. Open `MDN_LGBM_NHITS_bike.ipynb` or `MDN-LGBM-NHITS_Electricity.ipynb` in Google Colab.
 
-### Data Setup
+ 2. The first code cell in each notebook will install all necessary dependencies via pip. This process takes approximately 3-5 minutes.
 
-Before running the notebooks, please upload the necessary data files to your Google Drive and ensure the paths in the CONFIG section of each notebook point to the correct locations. The default paths are:
 
-- **Electricity Dataset**: `/content/drive/MyDrive/electricity.csv`
-- **Bike Sharing Dataset**: `/content/drive/MyDrive/myproject/bike_raw.csv`
+#### Option B: Local Machine
 
-The electricity dataset is publicly available but too large for Git:
+To run the project locally, ensure you have Python 3.8+ and a CUDA-capable GPU.
 
-1. Download from UCI ML Repository: https://archive.ics.uci.edu/dataset/321/electricityloaddiagrams20112014
-2. Place in `/content/drive/MyDrive/electricity.csv` (or update path in notebook CONFIG)
+```bash
+# Clone this repository
 
-## Setup for Google Colab
+# Create and activate a virtual environment (recommended)
+python3 -m venv venv
+source venv/bin/activate
 
-This project is designed to be run in a **Google Colab environment with a GPU runtime enabled**.
+# Install the required dependencies
+pip install -r requirements.txt
+```
 
-### Steps:
+### Step 2: Download and Position Datasets
 
-We provide two notebooks to demonstrate our framework.
+This project uses two public datasets. You will need to place them in a location accessible by your notebook (e.g., Google Drive for Colab).
 
-### 1. Lightweight implementation of N-HiTS + MDN framework (Bike Sharing Dataset)
+- **Bike Sharing Dataset**: The `bike_raw.csv` file is already included in this repository.
+- **Electricity Dataset**: This dataset is too large for the repository.
+  - Download it from: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/ElectricityLoadDiagrams20112014)
+  - Place it in a known path. The default path in the notebook is `/content/drive/MyDrive/electricity.csv`.
 
-The notebook **`MDN_LGBM_NHITS_bike.ipynb`** serves as a lightweight example of the N-HiTS + MDN framework. It runs on the free tier of Google Colab.
 
-1. Upload `bike_raw.csv` to your Google Drive at `/content/drive/MyDrive/myproject/`
-2. Open `MDN_LGBM_NHITS_bike.ipynb` in Google Colab
-3. Run Cell 1 to install dependencies (~3-5 minutes)
-4. Execute remaining cells sequentially
+The **Glovo Demand Data** used in the main part of the manuscript cannot be shared due to an NDA with data provider.
 
-### 2. Full experimental replication with LightGBM baseline (Electricity Dataset)
 
-The notebook **`MDN-LGBM-NHITS_Electricity.ipynb`** contains the complete code to replicate the results for the Electricity dataset.
+### Step 3: Configure Paths and Run the Notebooks
 
-**Important Note on Runtime and Space requirements**: This is an archival notebook and is **computationally intensive**. Training models may take **several days** to complete, even on a high-performance Google Colab instance. The resulting files will be **very large** (you will need around 150-200 Gb of space for them).
+Before running, update the data paths in the configuration cell at the top of each notebook to match the location where you saved the datasets.
 
-To run the experiments, you must execute the cells sequentially. Note that some blocks are commented out by default to allow for modular execution.
+- For a lightweight demonstration, run the cells in `MDN-LGBM-NHITS_bike.ipynb` sequentially.
+- For full experimental replication, run the cells in `MDN-LGBM-NHITS_Electricity.ipynb`.
 
-For LGBM training inclusion, please uncomment *BLOCK 2: LGBM FORECASTING* to generate the LightGBM model predictions before running the subsequent evaluation cells for that model.
+**Warning**: This notebook for the full experimental replication is computationally intensive and may take several days to complete, requiring 150-200 GB of storage for its artifacts.
 
-## Running Locally (Alternative to Colab)
+---
 
-If you prefer to run this project on your local machine, you can use the `requirements.txt` file to set up a Python environment.
+## Point vs. Probabilistic Forecasting
 
-## Probabilistic Forecasting
+The framework is configured for point forecasting (using MAE) by default. However, it can be easily adapted for probabilistic forecasting to generate prediction intervals or full distributions.
 
-The code provided implements point forecasts with MAE loss. To reproduce probabilistic forecasting results:
+### To generate quantile forecasts:
 
-### For Multiquantile (Pinball Loss):
-1. Include `from neuralforecast.losses.pytorch import QuantileLoss`
-1. In the N-HiTS model initialization, change loss function to:
-   - `loss = QuantileLoss(q=[0.05, 0.10, ..., 0.95])`
-2. Training remains identical. **Evaluation:** CRPS computed using equation (13) from Section 4.3.1, or using the `properscoring` library's `crps_ensemble` function.
+1. Import the QuantileLoss function: `from neuralforecast.losses.pytorch import QuantileLoss`.
+2. In the N-HiTS model initialization, set the loss to `loss=QuantileLoss(quantiles=[0.05, 0.1, ..., 0.95])`.
+3. Evaluate forecasts using a probabilistic metric such as the Continuous Ranked Probability Score (CRPS).
 
-### For GMM/PMM distributions:
-1. Run the files as they are.
-2. In the results from the GMM/PMM trained models, find the file containing the predicted distribution parameters (`test_forecasts_....csv`).
-3. Evaluation uses CRPS metric
+### To generate distributional forecasts (GMM/PMM):
+
+- The predicted distribution parameters (e.g., means, variances, weights) are saved in the output files (`test_forecasts_....csv`).
+- These parameters can be used to construct the full predictive distribution and calculate metrics like CRPS.
+
+
 
