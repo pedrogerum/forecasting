@@ -38,10 +38,10 @@ The provided seeds should ensure that results are directionally consistent to th
 ## Repository Structure
 
 - **`MDN_LGBM_NHITS_bike.ipynb`**: A Jupyter Notebook providing the code demonstration of the N-HiTS + MDN framework on the Bike Sharing dataset, as well as computing its benchmarks.
-- **`MDN-LGBM-NHITS_Electricity.ipynb`**: The complete archival code to reproduce the experimental results from our paper using the Electricity Load Diagrams dataset. Note: This is computationally intensive.
+- **`MDN-LGBM-NHITS_Electricity.ipynb`**: The complete archival code to reproduce the experimental results from our paper using the Electricity Consumption dataset. Note: This is computationally intensive.
 - **`requirements.txt`**: A list of Python packages for setting up a local environment.
 - **`bike_raw.csv`**: The Bike Sharing dataset file.
-- **`electricity_results.zip`**: Pre-computed forecasts and evaluation metrics for all models on the electricity dataset. This allows for analysis of our results without re-running the lengthy experiments.
+- **`electricity_results.zip`**: Pre-computed forecasts and evaluation metrics for all models on the Electricity Consumption dataset. This allows for analysis of our results without re-running the lengthy experiments.
 
 ---
 
@@ -78,7 +78,7 @@ This project uses two public datasets. You will need to place them in a location
 
 - **Bike Sharing Dataset**: The `bike_raw.csv` file is already included in this repository.
   - Place it in a known path. The default path in the notebook is `/content/drive/MyDrive/myproject/bike_raw.csv`.
-- **Electricity Dataset**: This dataset is too large for the repository.
+- **Electricity Consumption Dataset**: This dataset is too large for the repository.
   - Download it from: [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/321/electricityloaddiagrams20112014)
   - Place it in a known path. The default path in the notebook is `/content/drive/MyDrive/myproject/electricity.csv`.
 
@@ -90,10 +90,10 @@ The **SuperGlovo Demand Data** used in the main part of the manuscript cannot be
 
 Before running, update the data paths in the configuration cell at the top of each notebook to match the location where you saved the datasets.
 
-- For a lightweight demonstration, run the cells in `MDN_LGBM_NHITS_bike.ipynb` sequentially.
-- For full experimental replication, run the cells in `MDN-LGBM-NHITS_Electricity.ipynb`.
+- For full replication using the smaller *Bike Sharing* dataset (faster, less storage required), run the cells in `MDN_LGBM_NHITS_bike.ipynb` sequentially.
+- To reproduce results using the *Electricity Consumption* dataset (computationally intensive), run the cells in `MDN-LGBM-NHITS_Electricity.ipynb` sequentially (LGBM is commented out, so make sure to uncomment it if you want these results as well).
 
-**Warning**: This notebook for the full experimental replication is computationally intensive and may take several days to complete, requiring 150-200 GB of storage for its artifacts.
+**Warning**: This notebook for the full experimental replication of the *Electricity Consumption* dataset is computationally intensive and may take several days to complete, requiring 150-200 GB of storage for its artifacts.
 
 ---
 
