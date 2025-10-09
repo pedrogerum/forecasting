@@ -113,7 +113,7 @@ The framework is configured for point forecasting (using MAE) by default. Howeve
 2. Model will output distribution parameters to files (`test_forecasts_....csv`)
 3. Evaluate using CRPS metric
 
-Note: Pre-computed GMM/PMM results are not included due to file size. Run the notebooks with these loss functions to generate them.
+Note: Pre-computed results are not included due to file size. Run the notebooks with these loss functions to generate them.
 
 
 
