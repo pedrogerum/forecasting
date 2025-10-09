@@ -31,7 +31,7 @@ Please be aware that due to multiple sources of randomness in deep learning expe
 - Minor differences in software package versions
 - Hardware (GPU) variations
 
-The provided seeds should ensure that results are directionally consistent to the published findings.
+The provided seeds should ensure that results are directionally consistent with the published findings.
 
 ---
 
