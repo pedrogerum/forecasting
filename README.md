@@ -25,13 +25,10 @@ If you use this code or our findings in your research, please cite our paper:
 
 ## Note on Reproducibility
 
-Please be aware that due to multiple sources of randomness in deep learning experiments, the final metrics produced by this code may vary slightly from those reported in the paper. Sources of variation include:
+Please be aware that due to multiple sources of randomness in deep learning experiments, the final metrics produced by this code may vary slightly from those reported in the paper. 
 
-- Stochastic elements in model training (e.g., weight initialization, data batching)
-- Minor differences in software package versions
-- Hardware (GPU) variations
-
-The provided seeds should ensure that results are directionally consistent with the published findings.
+Final metrics may vary due to floating-point precision and rounding variations in GPU/CUDA operations. The provided seeds ensure directionally consistent results. 
+Deterministic computation modes are available but reduce training speed by 50-70%. Additional variations could occur from stochastic training elements (initialization, dropout, shuffling) and software version differences.
 
 ---
 
