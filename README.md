@@ -21,8 +21,6 @@ If you use this code or our findings in your research, please cite our paper:
 }
 ```
 
-**Note**: This repository includes the Bike Sharing and Electricity Consumption datasets used in our paper's validation studies. The SuperGlovo data from the main analysis cannot be shared due to NDA restrictions.
-
 ---
 
 ## Note on Reproducibility
