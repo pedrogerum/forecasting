@@ -21,7 +21,7 @@ If you use this code or our findings in your research, please cite our paper:
 }
 ```
 
-**Note**: While our paper's main results are based on proprietary SuperGlovo data, this repository provides the complete methodology with public datasets for reproducibility and adaptation to other domains.
+**Note**: This repository includes the Bike Sharing and Electricity Consumption datasets used in our paper's validation studies. The SuperGlovo data from the main analysis cannot be shared due to NDA restrictions.
 
 ---
 
