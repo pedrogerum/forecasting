@@ -73,14 +73,13 @@ pip install -r requirements.txt
 
 This project uses two public datasets. You will need to place them in a location accessible by your notebook (e.g., Google Drive for Colab).
 
-- **Bike Sharing Dataset**: The `bike_raw.csv` file is already included in this repository.
+- **Bike Sharing Dataset**: The `bike_raw.csv` file is already included in this repository. (also available at https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset)
   - Place it in a known path. The default path in the notebook is `/content/drive/MyDrive/myproject/bike_raw.csv`.
 - **Electricity Consumption Dataset**: This dataset is too large for the repository.
   - Download it from: [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/321/electricityloaddiagrams20112014)
   - Place it in a known path. The default path in the notebook is `/content/drive/MyDrive/myproject/electricity.csv`.
 
-
-The **SuperGlovo Demand Data** used in the main part of the manuscript cannot be shared due to an NDA with data provider.
+The **SuperGlovo Demand Data** used in the main part of the manuscript cannot be shared due to an NDA with data provider. Please contact the data provider for more information.
 
 
 ### Step 3: Configure Paths and Run the Notebooks
@@ -112,5 +111,5 @@ The framework is configured for point forecasting (using MAE) by default. Howeve
 
 **Note**: Pre-computed results are not included due to file size. Run the notebooks with these loss functions to generate them.
 
-
-
+Date submitted: Oct 10, 2025
+Contact: Dr. Pedro Cesar Lopes Gerum; p.lopesgerum@csuohio.edu
