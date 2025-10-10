@@ -101,7 +101,7 @@ Before running, update the data paths in the configuration cell at the top of ea
 
 ## Point vs. Probabilistic Forecasting
 
-The framework is configured for point forecasting (using MAE) by default. However, it can be easily adapted for probabilistic forecasting to generate prediction intervals or full distributions.
+The framework is configured for point forecasting (using MAE) by default. However, it can be adapted for probabilistic forecasting to generate prediction intervals or full distributions.
 
 ### To generate quantile forecasts:
 
