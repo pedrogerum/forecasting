@@ -1,4 +1,4 @@
-# High-Frequency Demand Forecasts with N-HiTS + MDN
+# High-Frequency Forecasts with N-HiTS + MDN
 
 ## Overview
 This repository implements the N-HiTS + MDN framework for high-frequency demand forecasting, as accepted in the *International Journal of Forecasting (2025)*. The method combines neural hierarchical interpolation with mixture density networks to improve forecast accuracy.
