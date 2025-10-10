@@ -1,7 +1,7 @@
-# Improving High-Frequency Demand Forecasts for Omnichannel Grocery Retail
+# Improving High-Frequency Demand Forecasts with N-HiTS + MDN
 
 ## Overview
-This repository implements the N-HiTS + MDN framework for high-frequency demand forecasting in grocery retail, as accepted in the *International Journal of Forecasting (2025)*. The method combines neural hierarchical interpolation with mixture density networks to improve forecast accuracy.
+This repository implements the N-HiTS + MDN framework for high-frequency demand forecasting, as accepted in the *International Journal of Forecasting (2025)*. The method combines neural hierarchical interpolation with mixture density networks to improve forecast accuracy.
 
 The main goal of the project is to provide the N-HiTS + MDN framework for high-frequency time series forecasting. This novel framework integrates deep learning models with a decoupled approach that separates structural demand modeling from short-term fluctuation prediction to enhance prediction accuracy. Our method combines Neural Hierarchical Interpolation for Time Series Forecasting (N-HiTS) and a Mixture Density Network (MDN) to capture short-term fluctuations and structural demand patterns, respectively.
 
