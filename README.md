@@ -21,6 +21,8 @@ If you use this code or our findings in your research, please cite our paper:
 }
 ```
 
+**Note**: While our paper's main results are based on proprietary SuperGlovo data, this repository provides the complete methodology with public datasets for reproducibility and adaptation to other domains.
+
 ---
 
 ## Note on Reproducibility
